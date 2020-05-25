@@ -1,0 +1,97 @@
+// project specific CSS goes here
+$bodyFont: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+$themeColor: #272B30;
+$headerPadding: 156px 0 100px;
+$sectionPadding: 150px 0;
+$messages: 0;
+$home__: 130px;
+$logoPosition: absolute;
+$logoTop: 100px;
+$logoMargin: -50px;
+$logoWidth: 13em;
+$logoHeight: 13em;
+$baseSpace: 30px 100px;
+$baseMargin: 100px 0;
+$h1: rgb(53, 142, 53);
+$contentTop: 90px;
+$menuBottom: 60px;
+
+////////////////////////////////
+		//Variables//
+////////////////////////////////
+
+// Alert colors
+
+$white: #fff;
+$mint-green: #d6e9c6;
+$black: #000;
+$pink: #f2dede;
+$dark-pink: #eed3d7;
+$red: #b94a48;
+$primary: #3A3F44;
+$anchor: #3b79a9;
+
+////////////////////////////////
+		//Alerts//
+////////////////////////////////
+
+// bootstrap alert CSS, translated to the django-standard levels of
+// debug, info, success, warning, error
+
+html, body{
+  font-family: $bodyFont;
+  color: #3A3F44;
+  // background-color: $themeColor;
+}
+
+a{
+  color: $anchor;
+}
+
+
+.alert-debug {
+  background-color: $white;
+  border-color: $mint-green;
+  color: $black;
+}
+
+.alert-error {
+  background-color: $pink;
+  border-color: $dark-pink;
+  color: $red;
+}
+
+.content__app {
+  margin-top: $contentTop;
+}
+
+header {
+  padding: $headerPadding;
+}
+.div__menu{
+  margin-bottom: $menuBottom;
+}
+
+section {
+  padding: $sectionPadding;
+}
+
+#messages {
+  margin: $messages;
+}
+
+.home__ {
+  margin-top: $home__;
+}
+
+.logo__header {
+  margin-top: $logoMargin;
+  width: $logoWidth;
+  height: $logoHeight;
+}
+
+.logo__base{
+  width: 8em;
+  height: 8em;
+}
+
