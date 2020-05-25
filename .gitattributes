@@ -1,1 +1,8 @@
 * text=auto
+
+## language usage
+*.scss linguist-language=python
+*.css.map linguist-language=python
+*.scss.map linguist-language=python
+
+
