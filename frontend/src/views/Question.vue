@@ -37,6 +37,7 @@
         :answer="answer"
         :key="answer.id"
         :requestUser="requestUser"
+        @delete-answer="deleteAnswer"
       />
       <div class="my-4">
         <p v-show="loadingAnswers">...load...</p>
@@ -94,7 +95,7 @@ export default {
   methods: {
      setRequestUser() {
       // the username has been set to localStorage by the App.vue component
-      this.requestUser = window.localStorage.getItem("username");
+      this.requestUser = window.localStorage.getItem("email");
     },
     setPageTitle(title) {
       document.title = title;
@@ -141,6 +142,16 @@ export default {
         this.newAnswerBody = null;
       }else {
         this.error = "You cannot send an empty answer!"
+      }
+    },
+    async deleteAnswer(answer) {
+      let endpoint = `/api/answers/${answer.id}/`;
+      try {
+        await APIService(endpoint, "DELETE");
+        this.$delete(this.answers, this.answers.indexOf(answer));
+        this.userHasAnswered = false;
+      }catch(err){
+        console.log(err)
       }
     }
     

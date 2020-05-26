@@ -48,7 +48,7 @@ export default {
     axios.get("http://127.0.0.1:8000/api/users/")
       .then(response => (this.users = response.data.results))
       .catch(err => {
-
+        
       })
     }
 }
