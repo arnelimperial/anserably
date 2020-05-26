@@ -38,7 +38,15 @@
         :key="answer.id"
         :requestUser="requestUser"
       />
-     
+      <div class="my-4">
+        <p v-show="loadingAnswers">...load...</p>
+          <button 
+            v-show="next"
+            @click="getQuestionAnswers"
+            class="btn btn-sm btn-outline-success"
+            >Load more...</button>
+      </div>
+      
     </div>
     
     
@@ -76,6 +84,8 @@ export default {
       error: null,
       userHasAnswered: false,
       showForm:false,
+      next: null,
+      loadingAnswers: false,
       hasChanges: true,
       requestUser: null
     }
@@ -104,11 +114,11 @@ export default {
       if (this.next) {
         endpoint = this.next;
       }
-      //this.loadingAnswers = true;
+      this.loadingAnswers = true;
       APIService(endpoint)
         .then(data => {
           this.answers.push(...data.results);
-          //this.loadingAnswers = false;
+          this.loadingAnswers = false;
           if (data.next) {
             this.next = data.next;
           } else {

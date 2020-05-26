@@ -19,8 +19,9 @@
               <div class="w3-dropdown-hover">
                 <button class="w3-btn btn-primary">{{ user.email}}</button>
                 <div class="w3-dropdown-content w3-bar-block w3-border">
+                  <span class="w3-bar-item btn">Hi! {{ user.first_name }} {{ user.last_name }}</span>
+                  <a v-bind:href="`/users/${user.username}/`" class="w3-bar-item btn">My Profile</a>
                   <a href="/accounts/logout/" class="w3-bar-item btn">Logout</a>
-   
                 </div>
               </div>
             </li>
