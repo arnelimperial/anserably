@@ -8,12 +8,8 @@
         placeholder="What do you want to ask?"
         rows="3"
       ></textarea>
-      <br>
-      <button
-        type="submit"
-        class="btn btn-success"
-        >Publish
-      </button>
+      <br />
+      <button type="submit" class="btn btn-success">Publish</button>
     </form>
     <p v-if="error" class="muted mt-2">{{ error }}</p>
   </div>
@@ -27,7 +23,7 @@ export default {
     return {
       question_body: null,
       error: null
-    }
+    };
   },
   methods: {
     onSubmit() {
@@ -38,20 +34,21 @@ export default {
         this.error = "Ensure this field has no more than 240 characters!";
       } else {
         let endpoint = "/api/questions/";
-        let method = "POST"; 
-       
-        APIService(endpoint, method, { content: this.question_body })
-          .then(question_data => {
-            this.$router.push({ 
-              name: 'question', 
+        let method = "POST";
+
+        APIService(endpoint, method, { content: this.question_body }).then(
+          question_data => {
+            this.$router.push({
+              name: "question",
               params: { slug: question_data.slug }
-            })          
-          })  
+            });
+          }
+        );
       }
     }
   },
   created() {
     document.title = "Editor - QuestionTime";
-  }  
-}
+  }
+};
 </script>

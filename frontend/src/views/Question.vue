@@ -49,9 +49,8 @@
       </div>
       
     </div>
-    
-    
-    <PreventUnload :when="hasChanges"/>
+  
+    <!-- <PreventUnload :when="hasChanges"/> -->
    
    
   </div>
@@ -61,7 +60,7 @@
 
 <script>
 import { APIService } from "../common/api.service.js";
-import PreventUnload from 'vue-prevent-unload';
+// import PreventUnload from 'vue-prevent-unload';
 import AnswerComponent from "@/components/common-components/Answer.vue";
 import axios from "axios";
 export default {
@@ -75,7 +74,7 @@ export default {
   },
   components: {
     AnswerComponent,
-    PreventUnload
+   // PreventUnload
   },
   data() {
     return {
@@ -87,7 +86,7 @@ export default {
       showForm:false,
       next: null,
       loadingAnswers: false,
-      hasChanges: true,
+      //hasChanges: true,
       requestUser: null
     }
   },
@@ -95,7 +94,7 @@ export default {
   methods: {
      setRequestUser() {
       // the username has been set to localStorage by the App.vue component
-      this.requestUser = window.localStorage.getItem("email");
+      this.requestUser = localStorage.getItem("email");
     },
     setPageTitle(title) {
       document.title = title;

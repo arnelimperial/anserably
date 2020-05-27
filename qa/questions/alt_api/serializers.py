@@ -11,7 +11,7 @@ class AnswerSerializer(serializers.ModelSerializer):
     # slug = serializers.SlugField(read_only=True)
     likes_count = serializers.SerializerMethodField()
     user_has_voted = serializers.SerializerMethodField()
-
+    question_slug = serializers.SerializerMethodField()
     # def get_created(self, instance):
     #     # MM dd yyyy
     #     return instance.created.strftime("%B %d, %Y")
@@ -24,6 +24,9 @@ class AnswerSerializer(serializers.ModelSerializer):
         request = self.context.get("request")
         return instance.voters.filter(pk=request.user.pk).exists()
 
+    def get_question_slug(self, instance):
+        return instance.question.slug
+        
     class Meta:
         model = Answer
         # fields = ['author', 'body', 'created', 'likes_count', 'user_has_voted', 'url']
