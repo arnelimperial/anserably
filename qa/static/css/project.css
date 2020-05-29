@@ -3,6 +3,12 @@ html, body {
   color: #3A3F44;
 }
 
+#banner-bg {
+  background-image: url("https://od.lk/s/ODhfODUxMjg2NF8/hero-public.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
 a {
   color: #3b79a9;
 }

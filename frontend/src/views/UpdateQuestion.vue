@@ -1,10 +1,14 @@
 <template>
   <div class="container pt-5">
-    <h1 class="mb-3">Edit Your Answer</h1>
+    <h1 class="mb-3">Edit Your Question</h1>
     <form @submit.prevent="onSubmit">
-      <textarea v-model="answerBody" class="form-control" rows="3"></textarea>
+      <textarea 
+        v-model="questionBody" 
+        class="form-control" 
+        rows="3"
+        ></textarea>
       <br />
-      <button type="submit" class="btn btn-success">Publish your answer</button>
+      <button type="submit" class="btn btn-success">Update</button>
     </form>
     <p v-if="error" class="muted mt-2">{{ error }}</p>
   </div>
@@ -13,42 +17,42 @@
 <script>
 import { APIService } from "@/common/api.service.js";
 export default {
-  name: "AnswerEditor",
+  name: "UpdateQuestion",
   props: {
-    id: {
-      type: Number,
+    slug: {
+      type: String,
       required: true
     }
   },
   data() {
     return {
       questionSlug: null,
-      answerBody: null,
+      questionBody: null,
       error: null
     };
   },
   methods: {
     onSubmit() {
-      if (this.answerBody) {
-        let endpoint = `/api/answers/${this.id}/`;
-        APIService(endpoint, "PUT", { body: this.answerBody }).then(() => {
+      if (this.questionBody) {
+        let endpoint = `/api/questions/${this.slug}/`;
+        APIService(endpoint, "PUT", { content: this.questionBody }).then(() => {
           this.$router.push({
             name: "question",
             params: { slug: this.questionSlug }
           });
         });
       } else {
-        this.error = "You can't submit an empty answer!";
+        this.error = "Required field!";
       }
     }
   },
   async beforeRouteEnter(to, from, next) {
     // get the answer's data from the REST API and set two data properties for the component
-    let endpoint = `/api/answers/${to.params.id}/`;
+    let endpoint = `/api/questions/${to.params.slug}/`;
     let data = await APIService(endpoint);
     return next(
       vm => (
-        (vm.answerBody = data.body), (vm.questionSlug = data.question_slug)
+        (vm.questionBody = data.content)
       )
     );
   }

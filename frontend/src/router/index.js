@@ -4,7 +4,8 @@ import Home from "../views/Home.vue";
 import Question from "../views/Question.vue";
 import Ask from "../views/Ask.vue";
 import AnswerEditor from "../views/AnswerEditor.vue";
-
+import UpdateQuestion from "../views/UpdateQuestion.vue";
+import NotFound from "../views/NotFound.vue";
 
 Vue.use(VueRouter);
 
@@ -32,7 +33,20 @@ const routes = [
     name: "answer-editor",
     component: AnswerEditor,
     props: true
+  },
+  {
+    path: "/question-update/:slug",
+    name: "update-question",
+    component: UpdateQuestion,
+    props: true
+  },
+  {
+    path: "*",
+    name: "not-found",
+    component: NotFound
   }
+
+
   
 
 ];

@@ -15,7 +15,7 @@
             <li class="nav-item">
               <router-link :to="{ name: 'ask' }" class="nav-link js-scroll-trigger">Ask Question</router-link>
             </li>
-            <li class="nav-item" v-for="user in users" :key="user.pk">
+            <li class="nav-item account__bar" v-for="user in users" :key="user.pk">
               <div class="w3-dropdown-hover">
                 <button class="w3-btn btn-primary">{{ user.email}}</button>
                 <div class="w3-dropdown-content w3-bar-block w3-border">
@@ -54,7 +54,14 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+ @media screen and (max-width: 721px) {
+   .account__bar {
+     visibility: hidden;
+   }
+ 
+ }
+ 
   
 </style>
 

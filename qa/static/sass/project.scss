@@ -15,6 +15,7 @@ $baseMargin: 100px 0;
 $h1: rgb(53, 142, 53);
 $contentTop: 90px;
 $menuBottom: 60px;
+
 ////////////////////////////////
 		//Variables//
 ////////////////////////////////
@@ -37,10 +38,23 @@ $anchor: #3b79a9;
 // bootstrap alert CSS, translated to the django-standard levels of
 // debug, info, success, warning, error
 
+
 html, body{
   font-family: $bodyFont;
   color: #3A3F44;
   // background-color: $themeColor;
+  
+}
+#banner-bg {
+  //https://od.lk/s/ODhfODUxMjg2NF8/hero-public.jpg
+  background-image: url('https://od.lk/s/ODhfODUxMjg2NF8/hero-public.jpg') !important;
+  //background-position: center !important;
+  background-repeat: no-repeat !important;
+  -webkit-background-size: cover !important;
+  -moz-background-size: cover !important;
+  -o-background-size: cover !important;
+  background-size: cover !important;
+
 }
 
 a{
@@ -93,4 +107,6 @@ section {
   width: 8em;
   height: 8em;
 }
+
+
 

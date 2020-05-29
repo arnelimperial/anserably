@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-2">
+  <div class="container pt-5">
     <h1 class="mb-3">Ask a Question</h1>
     <form @submit.prevent="onSubmit">
       <textarea
@@ -19,6 +19,13 @@
 import { APIService } from "../common/api.service.js";
 export default {
   name: "Ask",
+  props: {
+    slug: {
+      type: String,
+      required: false
+    }
+
+  },
   data() {
     return {
       question_body: null,
@@ -36,6 +43,13 @@ export default {
         let endpoint = "/api/questions/";
         let method = "POST";
 
+        if(this.slug !== undefined) {
+          
+          endpoint += `${this.slug}/`;
+          method = "PUT";
+
+        }
+
         APIService(endpoint, method, { content: this.question_body }).then(
           question_data => {
             this.$router.push({
@@ -46,6 +60,16 @@ export default {
         );
       }
     }
+  },
+  async beforeRouteEnter(to, from, next) {
+    if(to.params.slug !== undefined) {
+      let endpoint = `/api/questions/${to.params.slug}/`;
+      let data = APIService(endpoint);
+      return next(vm => (vm.question_body = data.content));
+    }else {
+      return next();
+    }
+
   },
   created() {
     document.title = "Editor - QuestionTime";
