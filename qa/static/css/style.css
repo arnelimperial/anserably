@@ -156,8 +156,7 @@ h2.stats {
   background: #ffffcc;
   border: 1px solid #888;
   border-radius: .2em;
-  -webkit-box-shadow: #cccccc .2em .2em .2em;
-          box-shadow: #cccccc .2em .2em .2em;
+  box-shadow: #cccccc .2em .2em .2em;
   color: #333;
   padding: .25em .5em;
 }
@@ -225,16 +224,14 @@ h2.stats {
 }
 
 #source p * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 #source p .n {
   float: left;
   text-align: right;
   width: 3rem;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin-left: -3rem;
   padding-right: 1em;
   color: #999999;
@@ -260,8 +257,7 @@ h2.stats {
 #source p .t {
   display: inline-block;
   width: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin-left: -.5em;
   padding-left: 0.3em;
   border-left: 0.2em solid white;
@@ -407,7 +403,6 @@ h2.stats {
   display: block;
   max-height: 0;
   overflow-y: hidden;
-  -webkit-transition: all .2s;
   transition: all .2s;
   padding: 0 .5em;
   font-family: verdana, sans-serif;
@@ -506,4 +501,3 @@ h2.stats {
   min-height: 3px;
   width: 100%;
 }
-/*# sourceMappingURL=style.css.map */

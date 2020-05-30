@@ -14,81 +14,74 @@
     <![endif]-->
 
     <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}">
-
-    {% block css %}
-    
+   
     <!-- Latest compiled and minified Bootstrap CSS -->
     {% comment %} <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> {% endcomment %}
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <!-- Your stuff: Third-party CSS libraries go here -->
-    {% compress css %}
-    <!-- This file stores project-specific CSS -->
     <link href="{% static 'css/flatly-bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- This file stores project-specific CSS -->
+
     <link href="{% static 'css/project.css' %}" rel="stylesheet">
-    {% comment %} <link href="{% static 'css/style.css' %}" rel="stylesheet"> {% endcomment %}
-    
-    {% endcompress %}
+   
+    {% block css %}
+
     {% endblock %}
 
   </head>
 
   <body class="page-top">
-   
     <div class="div__menu">
-    	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-			<div class="container">
-				<a class="navbar-brand js-scroll-trigger" href="{% url 'home' %}">Anserably</a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+		    <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="{% url 'home' %}">Anserably</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarResponsive">
-					<ul class="navbar-nav ml-auto">
-           
-						{% if request.user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="{% url 'core:qa-app' %}">Q&A App</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="{% url 'about' %}">Services</a>
-            </li>
-            <li class="nav-item">
-							<a class="nav-link js-scroll-trigger" href="{% url 'about' %}">Contact</a>
-						</li> 
-           
-            <li class="nav-item">
-           
-              <div class="w3-dropdown-hover">
-                <button class="w3-btn btn-primary">{{ request.user.email }}</button>
-                <div class="w3-dropdown-content w3-bar-block w3-border">
-                  <span class="w3-bar-item btn">Hi! {{request.user.get_full_name }}</span>
-                  <a class="w3-bar-item btn" href="{% url 'users:detail' request.user.username  %}">{% trans 'My Profile' %}</a>
-                  <a class="w3-bar-item btn" href="{% url 'account_logout' %}">{% trans "Logout" %}</a>
-                </div>
-              </div>
-             
-              
-            </li>
-          
-			
-						{% else %}
-						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger" href="{% url 'account_login' %}">{% trans "Signin" %}</a>
-						</li>
-             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="{% url 'about' %}">Services</a>
-            </li>
-            <li class="nav-item">
-							<a class="nav-link js-scroll-trigger" href="{% url 'about' %}">Contact</a>
-						</li> 
-						{% endif %}
-           
+                   
+				    <ul class="navbar-nav ml-auto">
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="{% url 'core:qa-app' %}">Q&A App</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="{% url 'about' %}">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="{% url 'about' %}">Contact</a>
+                        </li> 
             
-					</ul>
+                        <li class="nav-item">
+                    
+                            <div class="w3-dropdown-hover">
+                                <button class="w3-btn btn-primary bg-primary text-light">{{ request.user.email }}</button>
+                                <div class="w3-dropdown-content w3-bar-block w3-border">
+                                    <span class="w3-bar-item btn">Hi! {{request.user.get_full_name }}</span>
+                                    <a class="w3-bar-item btn" href="{% url 'users:detail' request.user.username  %}">{% trans 'My Profile' %}</a>
+                                    <a class="w3-bar-item btn" href="{% url 'account_logout' %}">{% trans "Logout" %}</a>
+                                </div>
+                            </div> 
+                        </li>
+					{% else %}
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="{% url 'account_login' %}">{% trans "Signin" %}</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="{% url 'about' %}">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="{% url 'about' %}">Contact</a>
+                        </li> 
+				    {% endif %}
+				    </ul>
+                   
 				</div>
-			</div>
+            </div>
 		</nav>
-	</div>
+	  
+    </div>
 	<!-- Start of content -->
   
     {% if messages %}
@@ -109,28 +102,25 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    {% block javascript %}
-      
+    
       <!-- Bootstrap JS and its dependencies-->
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
       {% comment %} <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> {% endcomment %}
 
       <!-- Your stuff: Third-party javascript libraries go here -->
-      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+     
       <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
       <!-- place project specific Javascript in this file -->
       {% compress js %}
       <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script> 
-	    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+	  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
       <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
-	    <script src="{% static 'js/scrolling-nav.js' %}"></script>
-      
-      {% if request.path == "/" %}
-      <script src="{% static 'js/home.js' %}"></script>
-      {% endif %}
+	  <script src="{% static 'js/scrolling-nav.js' %}"></script>
       {% endcompress %}
+
+    {% block javascript %}
 
     {% endblock javascript %}
   </body>
