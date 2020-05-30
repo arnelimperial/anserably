@@ -45,18 +45,6 @@ DATABASES = {
     "default": env.db("DATABASE_URL", default="postgres:///qa")
 }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'AUTH_SOURCE': env("DB_NAME"),
-        'NAME': env("DB_NAME"),
-        'USER': env("DB_USER"),
-        'PASSWORD': env("DB_PASSWORD"),
-        'HOST': env("DB_HOST"),
-        'PORT': env("DB_PORT"),
-    }
-}
-
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 # URLS
