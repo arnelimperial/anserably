@@ -1,4 +1,4 @@
-{% load static i18n compress%}<!DOCTYPE html>
+{% load static i18n %}<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -113,12 +113,12 @@
       <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
       <!-- place project specific Javascript in this file -->
-      {% compress js %}
+    
       <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script> 
 	  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
       <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
 	  <script src="{% static 'js/scrolling-nav.js' %}"></script>
-      {% endcompress %}
+     
 
     {% block javascript %}
 

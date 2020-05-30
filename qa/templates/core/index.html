@@ -2,9 +2,10 @@
 {% load static i18n compress %}
 
 {% block css %}
-    {% compress css %}
+   
+
     <link type="text/css" href="{% static 'bundle.css' %}">
-    {% endcompress %}
+  
 {% endblock %}
 
 {% block content %}
@@ -15,7 +16,7 @@
 {% endblock %}
 
 {% block javascript %}
-    {% compress js %}
+   
     <script type="text/javascript" src="{% static 'bundle.js' %}"></script>
-    {% endcompress %}
+    
 {% endblock %}
