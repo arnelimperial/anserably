@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <div id="nav" class="text-center pt-5 mt-5">
+  <div>
+    <div id="nav" class="text-center pt-5">
       <router-link :to="{ name: 'home' }">Question List</router-link> |
       <router-link :to="{ name: 'ask' }">Ask Question</router-link> |
       <a href="#">Help</a>
@@ -52,11 +52,11 @@ export default {
 </script>
 
 <style>
-  #app {
+  /* #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  }
+  } */
 
   #nav a {
     font-weight: bold;
