@@ -32,7 +32,7 @@ django-redis==4.11.0
 django-rest-auth==0.9.5
 django-stubs==1.5.0
 django-webpack-loader==0.7.0
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
 docutils==0.16
 factory-boy==2.12.0
